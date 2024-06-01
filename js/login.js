@@ -12,7 +12,7 @@ function validar() {
                         alert('Sesión iniciada!');
                         usuario.sesionIniciada = true;
                         sessionStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
-                        location.reload();
+                       
                         throw new Error('Salida del bucle')
                         
                     } else {
@@ -31,6 +31,10 @@ function validar() {
     } catch (error) {
         if (error.message !== 'Salida del bucle') {
             throw error; 
+        }else{
+            window.location.pathname = 'C:/Users/jorgs/Documents/Duoc/Full%20Stack%20ll/S3/Actividad%20Sumativa/inicio.html';
+            return false;
+
         }
     }
 

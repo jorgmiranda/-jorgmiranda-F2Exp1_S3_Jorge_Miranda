@@ -26,7 +26,7 @@ const cartTotal = document.querySelector('.cart-total');
 const opciones = {
     style: 'decimal', 
     minimumFractionDigits: 0, 
-    maximumFractionDigits: 0  
+    maximumFractionDigits: 3 
 }
 
 productList,addEventListener('click', e => {
@@ -124,31 +124,45 @@ const showHtml = () =>{
 const editarPerfil = document.querySelector('.editarPerfil');
 const cerrarSesion = document.querySelector('.cerrarSesion');
 const cerrarSesionSep = document.querySelector('.cerrarSesion-sep');
+const mensajeInicio = document.querySelector('.mensaje');
+const menuUsuario = document.querySelector('.menu-usuario');
 //Elementos que solo puede ver un usuario no logeado
 const inicioSesion = document.querySelector('.incioSesion');
 const registro = document.querySelector('.registro');
+const recuerparContra = document.querySelector('.recuperarContra');
 // Listado de usuarios llenado en el registro
 const listaUsuarios = JSON.parse(sessionStorage.getItem('usuarios'));
 let sesionIniciada = false;
+let usuariologeado = false;
 
 if(listaUsuarios){
     listaUsuarios.forEach(function(usuario){
         if(usuario.sesionIniciada){
             sesionIniciada = true;
+            usuariologeado = usuario;
         }
     });
 
     if(sesionIniciada){
         inicioSesion.classList.add('hidden');
         registro.classList.add('hidden');
+        recuerparContra.classList.add('hidden');
+        if(mensajeInicio){
+            mensajeInicio.textContent = 'Bienviendo '+ usuariologeado.nombreCompleto;
+        }
+        menuUsuario.textContent = 'Usuario: ' + usuariologeado.nombreUsuario;
 
+        menuUsuario.classList.remove('hidden');
         editarPerfil.classList.remove('hidden');
         cerrarSesion.classList.remove('hidden');
         cerrarSesionSep.classList.remove('hidden');
     }else{
         inicioSesion.classList.remove('hidden');
         registro.classList.remove('hidden');
+        recuerparContra.classList.remove('hidden');
+        mensajeInicio.textContent = 'Contenido principal de la página.....';
 
+        menuUsuario.classList.add('hidden');
         editarPerfil.classList.add('hidden');
         cerrarSesion.classList.add('hidden');
         cerrarSesionSep.classList.add('hidden');
@@ -173,3 +187,4 @@ function apagarSesion(){
         location.reload();
     }
 }
+

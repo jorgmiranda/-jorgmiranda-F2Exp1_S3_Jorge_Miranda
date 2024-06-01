@@ -69,7 +69,9 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item incioSesion" href="login.html">Iniciar Sesión</a></li>
                                 <li><a class="dropdown-item registro" href="formulario.html">Registrarse</a></li>
+                                <li><a class="dropdown-item menu-usuario" href="#"></a></li>
                                 <li><a class="dropdown-item editarPerfil" href="editarDatos.html">Editar Perfil</a></li>
+                                <li><a class="dropdown-item recuperarContra" href="recuperarContrasena.html">Recuperar Contraseña</a></li>
                                 <li><hr class="dropdown-divider cerrarSesion-sep"></li>
                                 <li><a class="dropdown-item cerrarSesion" href="#" onclick="apagarSesion()">Cerrar Sesión</a></li>
                             </ul>
@@ -80,7 +82,7 @@
         </nav>
     </div>
     <main class="container mt-5">
-        <h1>Formulario de Registro</h1>
+        <h1 class="titulo-pagina">Formulario de Registro</h1>
         <br>
         <br>
         <form id="registrationForm">
@@ -130,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="row">
                 <label for="direccionDespacho" class="form-label">Dirección de despacho:</label>
                 <input type="text" class="form-control" id="direccionDespacho">
             </div>
