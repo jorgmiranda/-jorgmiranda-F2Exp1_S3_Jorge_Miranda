@@ -14,7 +14,7 @@ const rowProduct = document.querySelector('.row-product');
 const productList = document.querySelector('.card-container');
 
 // Variable de arreglos de productos
-let listaProductos = []
+let listaProductos = JSON.parse(sessionStorage.getItem('listaProductos')) || [];
 
 const valorTotal = document.querySelector('#total-pagar');
 const contarProductos = document.querySelector('#contador-productos');
@@ -52,7 +52,7 @@ productList,addEventListener('click', e => {
         }else{
             listaProductos = [...listaProductos, infoProducto]
         }
-       
+        sessionStorage.setItem('listaProductos', JSON.stringify(listaProductos));
         
         showHtml()
     }
@@ -68,6 +68,7 @@ rowProduct.addEventListener('click', (e) => {
             producto => producto.titulo !== titulo
         );
 
+        sessionStorage.setItem('listaProductos', JSON.stringify(listaProductos));
         showHtml()
         console.log(listaProductos)
     }
@@ -188,3 +189,5 @@ function apagarSesion(){
     }
 }
 
+/*============================= Cargar el carrito =========================*/ 
+showHtml();
