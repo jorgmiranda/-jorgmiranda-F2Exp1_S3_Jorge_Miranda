@@ -159,7 +159,9 @@ if(listaUsuarios){
         inicioSesion.classList.remove('hidden');
         registro.classList.remove('hidden');
         recuerparContra.classList.remove('hidden');
-        mensajeInicio.textContent = 'Contenido principal de la página.....';
+        if(mensajeInicio){
+            mensajeInicio.textContent = 'Contenido principal de la página.....';
+        }
 
         menuUsuario.classList.add('hidden');
         editarPerfil.classList.add('hidden');
