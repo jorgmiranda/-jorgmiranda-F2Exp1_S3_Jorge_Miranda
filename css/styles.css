@@ -93,7 +93,7 @@ nav {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+    background-color: black !important;
     list-style: none;
     padding: 0;
     margin: 0;
