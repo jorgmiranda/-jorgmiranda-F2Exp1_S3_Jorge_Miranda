@@ -1,22 +1,38 @@
-var attempt = 3; // Variable to count number of attempts.
-// Below function Executes on click of login button.
-function validate() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    if (username == "Formget" && password == "formget#123") {
-        alert("Login successfully");
-        window.location = "success.html"; // Redirecting to other page.
-        return false;
-    }
-    else {
-        attempt--;// Decrementing by one.
-        alert("You have left " + attempt + " attempt;");
-        // Disabling fields after 3 attempts.
-        if (attempt == 0) {
-            document.getElementById("username").disabled = true;
-            document.getElementById("password").disabled = true;
-            document.getElementById("submit").disabled = true;
-            return false;
+function validar() {
+    var username = document.getElementById("nombreCompleto").value;
+    var password = document.getElementById("contrasenaUsuario").value;
+
+    const listaUsuarios = JSON.parse(sessionStorage.getItem('usuarios'));
+    //Se verifica si existe usuarios en memoria
+    try {
+        if (listaUsuarios) {
+            listaUsuarios.forEach(function (usuario) {
+                if (usuario.nombreUsuario == username) {
+                    if (usuario.contrasena == password) {
+                        alert('Sesión iniciada!');
+                        usuario.sesionIniciada = true;
+                        sessionStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+                        location.reload();
+                        throw new Error('Salida del bucle')
+                        
+                    } else {
+                        alert('La contraseña es incorrecta');
+                        throw new Error('Salida del bucle')
+                    }
+                } else {
+                    alert('El nombre de usuario ingresado no existe');
+                    throw new Error('Salida del bucle')
+                }
+            });
+        } else {
+            alert('El usuario no esta registrado');
+
+        }
+    } catch (error) {
+        if (error.message !== 'Salida del bucle') {
+            throw error; 
         }
     }
+
+
 }

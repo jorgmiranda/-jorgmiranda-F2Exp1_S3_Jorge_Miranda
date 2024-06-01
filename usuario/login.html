@@ -67,11 +67,11 @@
                                 Usuario
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="login.html">Iniciar Sesión</a></li>
-                                <li><a class="dropdown-item" href="formulario.html">Registrarse</a></li>
-                                <li><a class="dropdown-item" href="editarDatos.html">Editar Perfil</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item incioSesion" href="login.html">Iniciar Sesión</a></li>
+                                <li><a class="dropdown-item registro" href="formulario.html">Registrarse</a></li>
+                                <li><a class="dropdown-item editarPerfil" href="editarDatos.html">Editar Perfil</a></li>
+                                <li><hr class="dropdown-divider cerrarSesion-sep"></li>
+                                <li><a class="dropdown-item cerrarSesion" href="#" onclick="apagarSesion()">Cerrar Sesión</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                        <button type="submit" class="btn btn-primary" onclick="validar()">Iniciar Sesión</button>
                     </div>
     
                 </div>
@@ -114,7 +114,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="../js/validacionesform.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/login.js"></script>
 </body>

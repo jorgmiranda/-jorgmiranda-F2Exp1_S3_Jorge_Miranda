@@ -117,3 +117,59 @@ const showHtml = () =>{
     valorTotal.innerText = `$${total.toLocaleString('es-ES', opciones)}`;
     contarProductos.innerText = totalProductos;
 }
+
+/*============================= Verificar sesión =========================*/ 
+
+// Elementos que solo puede ver un usuario logeado
+const editarPerfil = document.querySelector('.editarPerfil');
+const cerrarSesion = document.querySelector('.cerrarSesion');
+const cerrarSesionSep = document.querySelector('.cerrarSesion-sep');
+//Elementos que solo puede ver un usuario no logeado
+const inicioSesion = document.querySelector('.incioSesion');
+const registro = document.querySelector('.registro');
+// Listado de usuarios llenado en el registro
+const listaUsuarios = JSON.parse(sessionStorage.getItem('usuarios'));
+let sesionIniciada = false;
+
+if(listaUsuarios){
+    listaUsuarios.forEach(function(usuario){
+        if(usuario.sesionIniciada){
+            sesionIniciada = true;
+        }
+    });
+
+    if(sesionIniciada){
+        inicioSesion.classList.add('hidden');
+        registro.classList.add('hidden');
+
+        editarPerfil.classList.remove('hidden');
+        cerrarSesion.classList.remove('hidden');
+        cerrarSesionSep.classList.remove('hidden');
+    }else{
+        inicioSesion.classList.remove('hidden');
+        registro.classList.remove('hidden');
+
+        editarPerfil.classList.add('hidden');
+        cerrarSesion.classList.add('hidden');
+        cerrarSesionSep.classList.add('hidden');
+    }
+}else{
+    editarPerfil.classList.add('hidden');
+    cerrarSesion.classList.add('hidden');
+    cerrarSesionSep.classList.add('hidden');
+}
+
+
+/*============================= Cerrar Sesión =========================*/ 
+function apagarSesion(){
+    if(listaUsuarios){
+        listaUsuarios.forEach(function(usuario){
+            if(usuario.sesionIniciada){
+                usuario.sesionIniciada = false;
+                sessionStorage.setItem('usuarios', JSON.stringify(listaUsuarios));
+            }
+        });
+        alert('Se ha cerrado la sesión');
+        location.reload();
+    }
+}
