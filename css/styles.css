@@ -88,7 +88,25 @@ nav {
     border-radius: 10px;
 }
 
-.submenu ul {
+.dropdown{
+    background-color: #f8f9fa !important;
+}
+
+.dropdown-menu{
+    background-color: #f8f9fa !important;
+}
+
+.dropdown-item {
+    color: #1aa3dd; 
+}
+
+.dropdown-item:hover {
+    background-color: black; 
+    color: white; 
+}
+
+
+/* .submenu ul {
     display: none;
     position: absolute;
     top: 100%;
@@ -119,7 +137,7 @@ nav {
 
 .submenu:hover ul {
     display: block;
-}
+} */
 
 .primer-contenedor{
     background-color: #37649c;
@@ -570,6 +588,11 @@ nav {
         display: none;
     }
 
+}
+
+/* Css login*/
+.login{
+    max-width: 700px !important;
 }
 
 /* Animaciones */
