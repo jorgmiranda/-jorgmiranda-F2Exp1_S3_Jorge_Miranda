@@ -22,11 +22,9 @@ const contarProductos = document.querySelector('#contador-productos');
 const cartEmpty = document.querySelector('.cart-empty');
 const cartTotal = document.querySelector('.cart-total');
 
-//Opciones de formateo de numeros
-const opciones = {
-    style: 'decimal', 
-    minimumFractionDigits: 0, 
-    maximumFractionDigits: 3 
+//formateo de numeros
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 productList,addEventListener('click', e => {
@@ -114,8 +112,8 @@ const showHtml = () =>{
         total = total + parseInt(producto.cantidad * producto.precio.slice(1).replace('.',''))
         totalProductos = totalProductos + producto.cantidad;
     });
-
-    valorTotal.innerText = `$${total.toLocaleString('es-ES', opciones)}`;
+    
+    valorTotal.innerText = `$${numberWithCommas(total)}`;
     contarProductos.innerText = totalProductos;
 }
 
@@ -185,7 +183,7 @@ function apagarSesion(){
             }
         });
         alert('Se ha cerrado la sesión');
-        location.reload();
+        window.location.pathname = 'C:/Users/jorgs/Documents/Duoc/Full%20Stack%20ll/S3/Actividad%20Sumativa/inicio.html';
     }
 }
 

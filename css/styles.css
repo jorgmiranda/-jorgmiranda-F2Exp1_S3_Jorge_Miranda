@@ -610,6 +610,11 @@ nav {
     animation: fadeInAnimation 1s ease-in forwards;
 }
 
+/*CSS Administración*/
+.edit-form{
+    width: 100%;
+}
+
 @keyframes fadeInAnimation {
     from {
         opacity: 0;
